@@ -28,4 +28,8 @@ public class NewsArticle {
     public String getDate() {
         return mDate;
     }
+
+    public String getmUrl() {
+        return mUrl;
+    }
 }

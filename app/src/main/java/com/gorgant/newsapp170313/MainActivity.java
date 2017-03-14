@@ -11,6 +11,9 @@ import static android.view.View.Z;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String GUARDIAN_REQUEST_URL =
+            "http://content.guardianapis.com/search?order-by=newest&use-date=published&api-key=033f7a2f-9a84-40ff-9a25-c02e2104a01f";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

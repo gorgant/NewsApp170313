@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import static com.gorgant.newsapp170313.R.id.date;
 
 /**
  * Created by Ludeyu on 3/13/2017.
@@ -44,20 +41,14 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
         TextView section = (TextView) convertView.findViewById(R.id.section);
         section.setText(newsArticle.getSection());
 
-
-
-
-
-        // Create a new Date object from the time in milliseconds of the news article
-        String dateObject = newsArticle.getDate();
-
-                // Find the TextView with view ID date
+        // Find the TextView with view ID date
         TextView date = (TextView) convertView.findViewById(R.id.date);
+        // Create a new Date String from the time String of the news article
+        String dateString = newsArticle.getDate();
         // Format the time string (i.e. "4:30PM") using the helper method formatDate
-
         String formattedDate = null;
         try {
-            formattedDate = formatDate(dateObject);
+            formattedDate = formatDate(dateString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -67,19 +58,18 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
 
         return convertView;
 
-
-
     }
 
     /**
-     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
+     * Return the formatted date string (i.e. "Mar 3, 1984") from a raw String by converting
+     * it to a date object and then simplifying the format.
      */
     private String formatDate(String dateObject) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        Date d = dateFormat.parse(dateObject);
+        SimpleDateFormat rawDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        Date d = rawDateFormat.parse(dateObject);
 
-        SimpleDateFormat dateFormat2 = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat2.format(d);
+        SimpleDateFormat cleanDateFormat = new SimpleDateFormat("LLL dd, yyyy");
+        return cleanDateFormat.format(d);
 
         //2017-03-14T00:37:26Z
     }

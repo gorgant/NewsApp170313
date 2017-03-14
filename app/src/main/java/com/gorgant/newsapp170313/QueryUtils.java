@@ -186,7 +186,7 @@ public class QueryUtils {
                 // Extract the value for the key called "time"
                 String date = currentArticle.getString("webPublicationDate");
 
-                // Extract the value for the key called "url"
+                // Extract the value for the key called "webUrl"
                 String url = currentArticle.getString("webUrl");
 
                 // Create a new {@link NewsArticle} object with the magnitude, location, time,
