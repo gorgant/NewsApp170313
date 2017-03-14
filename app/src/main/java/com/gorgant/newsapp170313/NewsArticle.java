@@ -5,25 +5,27 @@ package com.gorgant.newsapp170313;
  */
 
 public class NewsArticle {
-    private String title;
-    private String section;
-    private long date;
+    private String mTitle;
+    private String mSection;
+    private String mDate;
+    private String mUrl;
 
-    public NewsArticle(String title, String section, long date) {
-        this.title = title;
-        this.section = section;
-        this.date = date;
+    public NewsArticle(String title, String section, String date, String url) {
+        this.mTitle = title;
+        this.mSection = section;
+        this.mDate = date;
+        this.mUrl = url;
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
     public String getSection() {
-        return section;
+        return mSection;
     }
 
-    public long getDate() {
-        return date;
+    public String getDate() {
+        return mDate;
     }
 }
