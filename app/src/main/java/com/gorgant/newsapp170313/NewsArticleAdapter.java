@@ -68,10 +68,9 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
         SimpleDateFormat rawDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         Date d = rawDateFormat.parse(dateObject);
 
-        SimpleDateFormat cleanDateFormat = new SimpleDateFormat("LLL dd, yyyy");
+        SimpleDateFormat cleanDateFormat = new SimpleDateFormat("LLL dd, yyyy hh:mma");
         return cleanDateFormat.format(d);
 
-        //2017-03-14T00:37:26Z
     }
 
 }
