@@ -127,9 +127,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Log.i(LOG_TAG,"Loader being created");
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String section = sharedPrefs.getString(
-                getString(R.string.settings_section_key),
-                getString(R.string.settings_section_default));
+
+        String section = "";
+        if(sharedPrefs.contains(getString(R.string.settings_section_key))) {
+            section = sharedPrefs.getString(
+                    getString(R.string.settings_section_key),
+                    getString(R.string.settings_section_default));
+        }
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -138,7 +142,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        uriBuilder.appendQueryParameter("section", section);
+        if(section != ""){
+            uriBuilder.appendQueryParameter("section", section);
+        }
+
         uriBuilder.appendQueryParameter("order-by", orderBy);
 
         return new NewsArticleLoader(this, uriBuilder.toString());
