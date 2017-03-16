@@ -11,7 +11,7 @@
     <!-- Strings For Section Preference [CHAR LIMIT=30] -->
     <string name="settings_section_label">Specify Section</string>
     <string name="settings_section_key" translatable="false">section_selection</string>
-    <string name="settings_section_default" translatable="false"></string>
+    <string name="settings_section_default" translatable="false">business</string>
 
     <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
     <string name="settings_order_by_label">Order By</string>
