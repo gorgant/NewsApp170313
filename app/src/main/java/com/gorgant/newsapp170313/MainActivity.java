@@ -142,11 +142,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        if(section != ""){
+        Log.i(LOG_TAG,"Pre-appended version" + uriBuilder.toString());
+
+        if(section.length()>0){
             uriBuilder.appendQueryParameter("section", section);
         }
 
         uriBuilder.appendQueryParameter("order-by", orderBy);
+
+        Log.i(LOG_TAG,"Post-appended version" + uriBuilder.toString());
 
         return new NewsArticleLoader(this, uriBuilder.toString());
     }
